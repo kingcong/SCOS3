@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS练习</title>
+</head>
+<body>
+    <script type="text/javascript">
+//        alert("hello world");
+        console.log("hello world");
+
+        var age = 10;
+        var name = "wangcong";
+        var result = true;
+        var number = null;
+        var number2 = undefined;
+
+        console.log(typeof age,typeof name,typeof number);
+
+        // 函数
+        function sum(num1,num2) {
+            return num1+num2;
+        }
+
+        var result2 = sum(1,2);
+//        alert(result2);
+
+        var func = function () {
+            console.log("我是匿名函数");
+        }
+
+        func();
+
+        // 创建对象
+        var dog = {
+            name:"ahuang",age : 10,height : 190,dogFriends:["lili","wangcai"],
+            eat:function (something) {
+                console.log(this.name+" eat "+something);
+            },
+            run:function (somewhere) {
+                console.log(this.name+" eat "+somewhere);
+            }
+
+        };
+
+        console.log(dog.name,dog.age);
+        dog.eat("fish");
+        dog.run("1000mi");
+
+        window.location.href = 'http://www.baidu.com';
+
+    </script>
+
+</body>
+</html>

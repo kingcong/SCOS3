@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Action事件</title>
+
+</head>
+<body id="body">
+
+    <script type="text/javascript">
+        function showBody() {
+            alert("加载完成");
+        }
+
+        var bodyNode = document.getElementById("body");
+        bodyNode.onload = function () {
+            alert("load success");
+        }
+    </script>
+</body>
+</html>

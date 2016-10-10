@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+
+    <script type="text/javascript">
+
+        function checkUsername() {
+
+            var inputNode = document.getElementsByName("userName")[0];
+            var spanNode = document.getElementById("userId");
+            var content = inputNode.value;
+
+            var regex = /^[a-z][a-z0-9]{5}$/i;
+            if (regex.test(content)) {
+                spanNode.innerHTML = "正确".fontcolor("green");
+                return true;
+            } else  {
+                spanNode.innerHTML = "错误".fontcolor("red");
+                return false;
+            }
+
+        }
+
+        function checkPwd() {
+        }
+
+        function checkAgainPwd() {
+
+        }
+
+        function checkEmail() {
+
+        }
+
+        function checkAll() {
+
+        }
+    </script>
+</head>
+<body>
+
+    <!--<table border="1" align="center" width="300">-->
+        <!--<tr><th>文件</th><th>内容</th></tr>-->
+        <!--<tr>-->
+            <!--<td><input type="button" value="file0"></td> <td><input type="button" value="content0"></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><input type="button" value="file1"></td> <td><input type="button" value="content1"></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><input type="button" value="file2"></td> <td><input type="button" value="content2"></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td><input type="button" value="file3"></td> <td><input type="button" value="content3"></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+
+    <form action="08-success.html" method="get" onsubmit="return checkAll()">
+        <table border="1" align="center" width="50%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><p>姓名:</p></td>
+                <td><input type="text" name="userName" id="userName" onblur="checkUsername()"><span id="userId"></span></td>
+            </tr>
+            <tr>
+                <td><p>密码:</p></td>
+                <td><input type="text" name="pwdName" id="pwdName" onblur="checkPwd()"><span id="pwdId"></span></td>
+            </tr>
+            <tr>
+                <td><p>确认密码:</p></td>
+                <td><input type="text" name="certifyName" id="certifyName" onblur="checkAgainPwd()"><span id="certifyId"></span></td>
+            </tr>
+            <tr>
+                <td><p>邮箱:</p></td>
+                <td><input type= name="emailName" id="emailName" onblur="checkEmail()"></td>
+                <td><span id="emailId"></span></td>
+            </tr>
+            <tr>
+                <td><p>性别:</p></td>
+                <td><input type="checkbox" checked="true" name="gender" value="male">男<input type="checkbox"  name="gender" value="female">女</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+
+
+</html>

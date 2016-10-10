@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS基本语法3</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        Array.prototype.getMax = function () {
+            var max = this[0];
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] > max) {
+                    max = this[i];
+                }
+            }
+            return max;
+        }
+
+        Array.prototype.findElem = function (elem) {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i] == elem) return true;
+            }
+            return false;
+        }
+
+        var array = new Array(15,2,90,45);
+        var max = array.getMax();
+        document.write(max);
+
+        var result = array.findElem(2);
+        document.write("<br/>"+result);
+
+    </script>
+
+</body>
+</html>
