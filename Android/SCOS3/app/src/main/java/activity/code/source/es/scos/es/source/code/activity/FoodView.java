@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import activity.code.source.es.scos.R;
+import activity.code.source.es.scos.es.source.code.model.Food;
 
 public class FoodView extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
 
@@ -48,11 +49,20 @@ public class FoodView extends FragmentActivity implements View.OnClickListener,V
     }
 
     private void init(){
-        foodViewList = new FragmentFoodViewList();
-        for (int i = 0; i < 4; i++) {
-            FragmentFoodViewList foodViewList1 = new FragmentFoodViewList();
-            mFragmentList.add(foodViewList1);
+
+        List<Food> foodList = new ArrayList<Food>();
+        for (int i = 0; i < 100; i++) {
+            Food food = new Food();
+            food.setName("西红柿蛋汤"+i);
+            food.setPrice("20.01"+i);
+            foodList.add(food);
         }
+
+        for (int i = 0; i < 4; i++) {
+            FragmentFoodViewList foodViewList = new FragmentFoodViewList(foodList,this);
+            mFragmentList.add(foodViewList);
+        }
+
 
         mFragmentAdapter = new FragmentAdapter(this.getSupportFragmentManager(),mFragmentList);
         mPageVp.setAdapter(mFragmentAdapter);
@@ -60,6 +70,16 @@ public class FoodView extends FragmentActivity implements View.OnClickListener,V
         mPageVp.setOnPageChangeListener(this);
 
         item1.setTextColor(getResources().getColor(R.color.selectedItemColor));
+    }
+
+    // 获取食品列表
+    private List<Food> getFoodList(int i) {
+        List<Food> foodList = new ArrayList<Food>();
+        Food food = new Food();
+        food.setName("西红柿蛋汤"+i);
+        food.setPrice("20.01"+i);
+        foodList.add(food);
+        return foodList;
     }
 
     @Override

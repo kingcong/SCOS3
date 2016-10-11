@@ -5,9 +5,10 @@
     tools:context="activity.code.source.es.scos.es.source.code.activity.FragmentFoodViewList">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/lv_frgment_foodView">
 
+    </ListView>
 </FrameLayout>
