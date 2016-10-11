@@ -5,11 +5,17 @@ import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.app.ActionBar;
+
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +23,7 @@ import java.util.List;
 import activity.code.source.es.scos.R;
 import activity.code.source.es.scos.es.source.code.model.Food;
 
-public class FoodView extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
+public class FoodView extends AppCompatActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
 
     private TextView item1,item2,item3,item4;
     private ViewPager mPageVp;
@@ -25,6 +31,7 @@ public class FoodView extends FragmentActivity implements View.OnClickListener,V
     private FragmentAdapter mFragmentAdapter;
 
     private FragmentFoodViewList foodViewList;
+    private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,10 @@ public class FoodView extends FragmentActivity implements View.OnClickListener,V
         item4.setOnClickListener(this);
 
         mPageVp = (ViewPager) findViewById(R.id.id_foodview_vp);
+
+        actionBar = getActionBar();
+        // 设置ActionBar 的导航方式: Tab导航
+//        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
     }
 
     private void init(){
@@ -137,5 +148,29 @@ public class FoodView extends FragmentActivity implements View.OnClickListener,V
         item2.setTextColor(getResources().getColor(R.color.nomalItemColor));
         item3.setTextColor(getResources().getColor(R.color.nomalItemColor));
         item4.setTextColor(getResources().getColor(R.color.nomalItemColor));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to theaction bar if it is present.
+        getMenuInflater().inflate(R.menu.menu, menu);//获取menu目录下simple.xml的菜单文件
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.item_food_selected:
+                Toast.makeText(this, "您点击了已选菜品", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item_look_order:
+                Toast.makeText(this, "您点击了查看订单", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item_call_service:
+                Toast.makeText(this, "您点击了呼叫服务", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

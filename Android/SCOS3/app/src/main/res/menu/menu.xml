@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jph.ab.MainActivity">
+    <item
+        android:id="@+id/item_food_selected"
+        android:orderInCategory="100"
+        android:title="已点菜品"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/item_look_order"
+        android:orderInCategory="100"
+        android:title="查看订单"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/item_call_service"
+        android:orderInCategory="100"
+        android:title="呼叫服务"
+        app:showAsAction="always"/>
+</menu>
