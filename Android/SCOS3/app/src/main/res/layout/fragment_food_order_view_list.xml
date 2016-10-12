@@ -1,0 +1,70 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="activity.code.source.es.scos.es.source.code.activity.FragmentFoodOrderViewList">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lvfood_order_view_list"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            ></ListView>
+
+        // 菜名，价格，数量，备注，“退 点”按钮;在页面下方显示菜品总数、订单总价及“提交订单”按钮
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:background="@color/backgroundColor"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/tv_fooOrderView_bootom_name"
+                android:text="菜名"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_fooOrderView_bootom_price"
+                android:text="价格"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tv_fooOrderView_bootom_name"
+                android:layout_alignTop="@+id/tv_fooOrderView_bootom_name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_fooOrderView_bootom_number"
+                android:text="数量"
+                android:layout_below="@+id/tv_fooOrderView_bootom_name"
+                android:layout_marginTop="20dp"
+                android:layout_alignLeft="@+id/tv_fooOrderView_bootom_name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_fooOrderView_bootom_declare"
+                android:text="备注"
+                android:layout_toRightOf="@+id/tv_fooOrderView_bootom_number"
+                android:layout_alignBottom="@+id/tv_fooOrderView_bootom_number"
+                android:layout_marginLeft="10dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="提交订单"
+                android:id="@+id/bt_foodOrderView_bottom_button"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

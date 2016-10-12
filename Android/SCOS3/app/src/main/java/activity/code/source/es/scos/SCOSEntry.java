@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import activity.code.source.es.scos.es.source.code.activity.FoodOrderView;
 import activity.code.source.es.scos.es.source.code.activity.FoodView;
 
 public class SCOSEntry extends AppCompatActivity implements View.OnClickListener{
@@ -26,7 +27,7 @@ public class SCOSEntry extends AppCompatActivity implements View.OnClickListener
 
         gestureDetector = new GestureDetector(this, onGestureListener);
 
-        Intent intent = new Intent(this, FoodView.class);
+        Intent intent = new Intent(this, FoodOrderView.class);
         startActivity(intent);
 
     }
