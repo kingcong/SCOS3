@@ -1,10 +1,12 @@
 package activity.code.source.es.scos.es.source.code.model;
 
+import java.io.Serializable;
+
 /**
  * Created by kingcong on 2016/10/11.
  */
 
-public class Food {
+public class Food implements Serializable{
     private String name;    // 菜名
     private String price;   // 菜的价格
     private boolean isSelected; // 是否点菜

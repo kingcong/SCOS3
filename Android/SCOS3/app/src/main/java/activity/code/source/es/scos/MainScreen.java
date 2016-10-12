@@ -1,8 +1,13 @@
 package activity.code.source.es.scos;
 
 import android.content.Intent;
+import android.provider.Settings;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -14,10 +19,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import activity.code.source.es.scos.es.source.code.activity.FoodOrderView;
+import activity.code.source.es.scos.es.source.code.activity.FoodView;
 import activity.code.source.es.scos.es.source.code.model.User;
 
-public class MainScreen extends AppCompatActivity {
+public class MainScreen extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
+    private String[] titles;
+    private int[] imags;
     private User user;
 
     @Override
@@ -33,10 +42,7 @@ public class MainScreen extends AppCompatActivity {
         Intent intent = getIntent();
         String fromEntry = intent.getStringExtra("activity.code.source.es.scos.MainScreen");
 
-        User loginUser = (User)intent.getSerializableExtra("user");
-
-        String[] titles;
-        int[] imags;
+        User loginUser = (User)intent.getSerializableExtra("loginUser");
 
 
         if (!"FromEntry".equals(fromEntry)) {    // 判断是否相等
@@ -80,5 +86,35 @@ public class MainScreen extends AppCompatActivity {
 
         SimpleAdapter adapter = new SimpleAdapter(this,listItems,R.layout.main_items,new String[]{"title","image"},new int[]{R.id.tv_itemstextview,R.id.iv_itemsicon});
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        System.out.println("当前点击"+position);
+        if (position == 0) {
+            String title = titles[position];
+            if ("点菜".equals(title)) {   // 进入当前页面
+
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("loginUser",user);
+                intent.putExtras(bundle);
+                intent.setClass(this, FoodView.class);
+                startActivity(intent);
+            }
+        } else if (position == 1) {
+            String title = titles[position];
+            if ("查看订单".equals(title)) {
+
+                Intent intent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("loginUser",user);
+                intent.putExtras(bundle);
+                intent.setClass(this, FoodOrderView.class);
+                startActivity(intent);
+            }
+        }
     }
 }

@@ -1,7 +1,8 @@
-package activity.code.source.es.scos.es.source.code.activity;
+package activity.code.source.es.scos.es.source.code.fragment;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -21,11 +23,12 @@ import activity.code.source.es.scos.R;
 import activity.code.source.es.scos.es.source.code.adapter.FragmentFoodOrderViewAdapter;
 import activity.code.source.es.scos.es.source.code.adapter.FragmentFoodViewAdapter;
 import activity.code.source.es.scos.es.source.code.model.Food;
+import activity.code.source.es.scos.es.source.code.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentFoodOrderViewList extends Fragment implements AdapterView.OnItemClickListener{
+public class FragmentFoodOrderViewList extends Fragment implements AdapterView.OnItemClickListener,View.OnClickListener{
 
 
     private List<Food> foodList;
@@ -41,12 +44,15 @@ public class FragmentFoodOrderViewList extends Fragment implements AdapterView.O
     private TextView bottomDeclareTextView;
     private Button bottomButton;
 
-    public FragmentFoodOrderViewList(List<Food> foodList,Context context,boolean isSelectedFood) {
+    private User user;
+
+    public FragmentFoodOrderViewList(List<Food> foodList, Context context, boolean isSelectedFood, User user) {
         // Required empty public constructor
         super();
         this.foodList = foodList;
         this.mContext = context;
         this.isSelectedFood = isSelectedFood;
+        this.user = user;
     }
 
 
@@ -62,7 +68,7 @@ public class FragmentFoodOrderViewList extends Fragment implements AdapterView.O
         bottomNumberTextView = (TextView) foodView.findViewById(R.id.tv_fooOrderView_bootom_number);
         bottomDeclareTextView = (TextView) foodView.findViewById(R.id.tv_fooOrderView_bootom_declare);
         bottomButton = (Button) foodView.findViewById(R.id.bt_foodOrderView_bottom_button);
-
+        bottomButton.setOnClickListener(this);
         return foodView;
     }
 
@@ -88,4 +94,20 @@ public class FragmentFoodOrderViewList extends Fragment implements AdapterView.O
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_foodOrderView_bottom_button:
+                clickBottomBtn();
+                break;
+        }
+    }
+
+    private void clickBottomBtn(){
+        if (this.isSelectedFood && user != null) {  // 点击结账并且user不为null
+            if (user.isOldUser()) {
+                Toast.makeText(mContext,"您好，老 顾客，本次你可享受 7 折优惠",Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

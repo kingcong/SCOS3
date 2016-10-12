@@ -7,17 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import activity.code.source.es.scos.R;
-import activity.code.source.es.scos.es.source.code.activity.FragmentFoodViewList;
 import activity.code.source.es.scos.es.source.code.model.Food;
 
 /**

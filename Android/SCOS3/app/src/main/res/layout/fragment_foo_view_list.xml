@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activity.code.source.es.scos.es.source.code.activity.FragmentFoodViewList">
+    tools:context="activity.code.source.es.scos.es.source.code.fragment.FragmentFoodViewList">
 
     <!-- TODO: Update blank fragment layout -->
     <ListView

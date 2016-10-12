@@ -1,4 +1,4 @@
-package activity.code.source.es.scos.es.source.code.activity;
+package activity.code.source.es.scos.es.source.code.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

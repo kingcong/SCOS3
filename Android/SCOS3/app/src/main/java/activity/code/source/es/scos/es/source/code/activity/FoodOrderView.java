@@ -1,6 +1,6 @@
 package activity.code.source.es.scos.es.source.code.activity;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import activity.code.source.es.scos.R;
+import activity.code.source.es.scos.es.source.code.adapter.FragmentAdapter;
+import activity.code.source.es.scos.es.source.code.fragment.FragmentFoodOrderViewList;
+import activity.code.source.es.scos.es.source.code.fragment.FragmentFoodViewList;
 import activity.code.source.es.scos.es.source.code.model.Food;
+import activity.code.source.es.scos.es.source.code.model.User;
 
 public class FoodOrderView extends AppCompatActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
 
@@ -22,6 +26,8 @@ public class FoodOrderView extends AppCompatActivity implements View.OnClickList
     private FragmentAdapter mFragmentAdapter;
 
     private FragmentFoodViewList foodViewList;
+    private User user;
+    private int selectPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +35,18 @@ public class FoodOrderView extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.food_order_view);
 
 
+        getParams();
         findById();
         init();
+    }
+
+    // 接受其他控制器传入的参数
+    private void getParams(){
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("loginUser");
+        this.user = user;
+        int selectPosition = intent.getIntExtra("selectPosition",0);
+        this.selectPosition = selectPosition;
     }
 
     private void findById(){
@@ -55,17 +71,21 @@ public class FoodOrderView extends AppCompatActivity implements View.OnClickList
 
         for (int i = 0; i < 2; i++) {
             boolean isSelected = i == 0 ? false : true;
-            FragmentFoodOrderViewList foodViewList = new FragmentFoodOrderViewList(foodList,this,isSelected);
+            FragmentFoodOrderViewList foodViewList = new FragmentFoodOrderViewList(foodList,this,isSelected,user);
             mFragmentList.add(foodViewList);
         }
 
 
         mFragmentAdapter = new FragmentAdapter(this.getSupportFragmentManager(),mFragmentList);
         mPageVp.setAdapter(mFragmentAdapter);
-        mPageVp.setCurrentItem(0);
+        mPageVp.setCurrentItem(selectPosition);
         mPageVp.setOnPageChangeListener(this);
 
-        item1.setTextColor(getResources().getColor(R.color.selectedItemColor));
+        if (selectPosition == 0) {
+            item1.setTextColor(getResources().getColor(R.color.selectedItemColor));
+        } else {
+            item2.setTextColor(getResources().getColor(R.color.selectedItemColor));
+        }
     }
 
     // 获取食品列表

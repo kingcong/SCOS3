@@ -1,16 +1,12 @@
 package activity.code.source.es.scos.es.source.code.activity;
 
-import android.content.DialogInterface;
-import android.provider.Settings;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
 
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import activity.code.source.es.scos.R;
+import activity.code.source.es.scos.es.source.code.adapter.FragmentAdapter;
+import activity.code.source.es.scos.es.source.code.fragment.FragmentFoodViewList;
 import activity.code.source.es.scos.es.source.code.model.Food;
+import activity.code.source.es.scos.es.source.code.model.User;
 
 public class FoodView extends AppCompatActivity implements View.OnClickListener,ViewPager.OnPageChangeListener{
 
@@ -32,6 +31,7 @@ public class FoodView extends AppCompatActivity implements View.OnClickListener,
 
     private FragmentFoodViewList foodViewList;
     private ActionBar actionBar;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,14 +163,27 @@ public class FoodView extends AppCompatActivity implements View.OnClickListener,
         switch (id) {
             case R.id.item_food_selected:
                 Toast.makeText(this, "您点击了已选菜品", Toast.LENGTH_SHORT).show();
+                clickSelectedFood(0);
                 return true;
             case R.id.item_look_order:
                 Toast.makeText(this, "您点击了查看订单", Toast.LENGTH_SHORT).show();
+                clickSelectedFood(1);
                 return true;
             case R.id.item_call_service:
                 Toast.makeText(this, "您点击了呼叫服务", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    // ActionBar跳转界面
+    private void clickSelectedFood(int position){
+        Intent intent = new Intent();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user",user);
+        intent.putExtras(bundle);
+        intent.putExtra("selectPosition",position);
+        intent.setClass(this,FoodOrderView.class);
+        startActivity(intent);
     }
 }
