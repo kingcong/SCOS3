@@ -26,7 +26,7 @@ public class FragmentFoodViewAdapter extends BaseAdapter implements View.OnClick
     private ArrayList<Food> foodList;
     private Context mContext;
     private Map<Integer,Boolean> selectdMap;
-    private Adapter adapter;
+//    private Adapter adapter;
 
     public FragmentFoodViewAdapter(Context context,ArrayList<Food> foodList) {
         this.mContext = context;
@@ -72,18 +72,23 @@ public class FragmentFoodViewAdapter extends BaseAdapter implements View.OnClick
         item_btn.setTag(position);
         item_btn.setOnClickListener(this);
 
+        Food food = foodList.get(position);
         Boolean isSelectd = selectdMap.get(position);
 
         if (isSelectd.booleanValue() == true) {
             item_btn.setText("退点");
             selectdMap.put(position,true);
+            // 已经选中
+            food.setSelected(true);
         } else {
             item_btn.setText("点菜");
             selectdMap.put(position,false);
+            // 取消点菜
+            food.setSelected(false);
         }
 
         //3.获取postion位置条目对应的list集合中的新闻数据，Bean对象
-        Food food = foodList.get(position);
+//        Food food = foodList.get(position);
         //4.将数据设置给这些子控件做显示
         item_tv_name.setText(food.getName());
         item_tv_price.setText(food.getPrice());
@@ -108,9 +113,14 @@ public class FragmentFoodViewAdapter extends BaseAdapter implements View.OnClick
         if (!isSelect) {    // 没有选中
             button.setText("退点");
             selectdMap.put(position,true);
+            Toast.makeText(mContext,"点菜成功",Toast.LENGTH_SHORT);
+            // 设置当前已经点菜
+            food.setSelected(true);
         } else {    // 取消选中
             button.setText("点菜");
             selectdMap.put(position,false);
+            // 取消当前点菜
+            food.setSelected(false);
         }
     }
 }

@@ -1,6 +1,7 @@
 package activity.code.source.es.scos.es.source.code.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import activity.code.source.es.scos.es.source.code.model.User;
 /**
  * A simple {@link Fragment} subclass.
  */
+@SuppressLint("ValidFragment")
 public class FragmentFoodOrderViewList extends Fragment implements AdapterView.OnItemClickListener,View.OnClickListener{
 
 
@@ -45,6 +47,10 @@ public class FragmentFoodOrderViewList extends Fragment implements AdapterView.O
     private Button bottomButton;
 
     private User user;
+
+    public FragmentFoodOrderViewList(){
+
+    }
 
     public FragmentFoodOrderViewList(List<Food> foodList, Context context, boolean isSelectedFood, User user) {
         // Required empty public constructor

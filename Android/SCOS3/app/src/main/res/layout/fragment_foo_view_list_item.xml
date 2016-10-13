@@ -30,7 +30,8 @@
         android:text="点菜"
         android:paddingLeft="20px"
         android:paddingRight="20px"
-
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         />
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package activity.code.source.es.scos.es.source.code.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -24,11 +25,16 @@ import activity.code.source.es.scos.es.source.code.activity.FoodDetailed;
 import activity.code.source.es.scos.es.source.code.adapter.FragmentFoodViewAdapter;
 import activity.code.source.es.scos.es.source.code.model.Food;
 
+@SuppressLint("ValidFragment")
 public class FragmentFoodViewList extends Fragment implements AdapterView.OnItemClickListener{
 
     private List<Food> foodList;
     private ListView listView;
     private Context mContext;
+
+    public FragmentFoodViewList(){
+
+    }
 
      public FragmentFoodViewList(List<Food> foodList,Context context) {
          super();

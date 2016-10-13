@@ -14,7 +14,6 @@
             android:layout_height="match_parent"
             android:id="@+id/lvfood_order_view_list"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
             ></ListView>
 
         // 菜名，价格，数量，备注，“退 点”按钮;在页面下方显示菜品总数、订单总价及“提交订单”按钮
