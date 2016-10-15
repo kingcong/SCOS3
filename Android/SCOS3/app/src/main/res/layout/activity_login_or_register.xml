@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="20px"
-    tools:context="activity.code.source.es.scos.LoginOrRegister">
+    tools:context="activity.code.source.es.scos.es.source.code.activity.LoginOrRegister">
 
     <EditText
         android:layout_width="match_parent"

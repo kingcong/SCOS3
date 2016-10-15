@@ -1,18 +1,13 @@
-package activity.code.source.es.scos;
+package activity.code.source.es.scos.es.source.code.activity;
 
 import android.content.Intent;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
-import activity.code.source.es.scos.es.source.code.activity.FoodDetailed;
-import activity.code.source.es.scos.es.source.code.activity.FoodOrderView;
-import activity.code.source.es.scos.es.source.code.activity.FoodView;
+import activity.code.source.es.scos.R;
 
 public class SCOSEntry extends AppCompatActivity implements View.OnClickListener{
 
@@ -61,7 +56,7 @@ public class SCOSEntry extends AppCompatActivity implements View.OnClickListener
             case RIGHT:
                 System.out.println("go right");
                 Intent intent = new Intent(this,LoginOrRegister.class);
-                intent.putExtra("activity.code.source.es.scos.MainScreen","FromEntry");
+                intent.putExtra("activity.code.source.es.scos.es.source.code.activity.MainScreen","FromEntry");
                 startActivity(intent);
                 break;
             case LEFT:

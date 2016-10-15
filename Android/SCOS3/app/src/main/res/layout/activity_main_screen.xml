@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16px"
-    tools:context="activity.code.source.es.scos.MainScreen">
+    tools:context="activity.code.source.es.scos.es.source.code.activity.MainScreen">
 
     <!--<ListView-->
         <!--android:layout_width="match_parent"-->

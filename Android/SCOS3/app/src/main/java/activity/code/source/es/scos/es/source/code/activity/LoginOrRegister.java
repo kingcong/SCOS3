@@ -1,11 +1,8 @@
-package activity.code.source.es.scos;
+package activity.code.source.es.scos.es.source.code.activity;
 
 import android.content.Intent;
-import android.os.SystemClock;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +10,7 @@ import android.widget.EditText;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import activity.code.source.es.scos.R;
 import activity.code.source.es.scos.es.source.code.model.User;
 
 public class LoginOrRegister extends AppCompatActivity implements View.OnClickListener{
@@ -90,7 +88,7 @@ public class LoginOrRegister extends AppCompatActivity implements View.OnClickLi
         loginUser.setOldUser(true);
 
         Intent intent = new Intent();
-        intent.putExtra("activity.code.source.es.scos.MainScreen","LoginSuccess");
+        intent.putExtra("activity.code.source.es.scos.es.source.code.activity.MainScreen","LoginSuccess");
         Bundle bundle = new Bundle();
         bundle.putSerializable("loginUser",loginUser);
         intent.putExtras(bundle);
@@ -121,7 +119,7 @@ public class LoginOrRegister extends AppCompatActivity implements View.OnClickLi
         loginUser.setOldUser(false);
 
         Intent intent = new Intent();
-        intent.putExtra("activity.code.source.es.scos.MainScreen","RegisterSuccess");
+        intent.putExtra("activity.code.source.es.scos.es.source.code.activity.MainScreen","RegisterSuccess");
         Bundle bundle = new Bundle();
         bundle.putSerializable("loginUser",loginUser);
         intent.putExtras(bundle);
@@ -133,7 +131,7 @@ public class LoginOrRegister extends AppCompatActivity implements View.OnClickLi
     private void handleBackEvent() {
         System.out.println("返回上一级。。。。。");
         Intent intent = new Intent();
-        intent.putExtra("activity.code.source.es.scos.MainScreen","Return");
+        intent.putExtra("activity.code.source.es.scos.es.source.code.activity.MainScreen","Return");
         intent.setClass(this,MainScreen.class);
         startActivity(intent);
     }

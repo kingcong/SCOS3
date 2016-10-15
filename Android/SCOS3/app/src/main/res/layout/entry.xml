@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="activity.code.source.es.scos.SCOSEntry">
+    tools:context="activity.code.source.es.scos.es.source.code.activity.SCOSEntry">
 
     <TextView
         android:layout_width="wrap_content"

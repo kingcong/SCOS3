@@ -1,4 +1,4 @@
-package activity.code.source.es.scos;
+package activity.code.source.es.scos.es.source.code.activity;
 
 import android.content.Intent;
 import android.provider.Settings;
@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import activity.code.source.es.scos.R;
 import activity.code.source.es.scos.es.source.code.activity.FoodOrderView;
 import activity.code.source.es.scos.es.source.code.activity.FoodView;
 import activity.code.source.es.scos.es.source.code.model.User;
@@ -40,7 +41,7 @@ public class MainScreen extends AppCompatActivity implements AdapterView.OnItemC
     private void initListview() {
 
         Intent intent = getIntent();
-        String fromEntry = intent.getStringExtra("activity.code.source.es.scos.MainScreen");
+        String fromEntry = intent.getStringExtra("activity.code.source.es.scos.es.source.code.activity.MainScreen");
 
         User loginUser = (User)intent.getSerializableExtra("loginUser");
 
